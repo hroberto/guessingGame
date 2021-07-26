@@ -4,19 +4,19 @@
 Este documento visa descrever os passos para a montagem de ambiente, da aplicacao para teste de conhecimento tecnico.
 
 
-#INFORMACOES DO CANDIDATO
+# INFORMACOES DO AUTOR
 
 > **Data Criacao:** 27/06/2021
 > **Autor:** HENRIQUE MARTINS ROBERTO
 > **E-mail:** henrique.roberto@gmail.com
 
 
-#SOBRE O AMBIENTE DE DESENVOLVIMENTO
+# SOBRE O AMBIENTE DE DESENVOLVIMENTO
 
 O desenvolvimento foi realizado na plataforma LINUX, com o compilador GNU. Portanto, para possibilitar a utilizacao e teste pelo avaliador, o ambiente a seguir foi documentado utilizando o DOCKER.
 
 
-#CRIACAO DO AMBIENTE DOCKER PARA DESENVOLVIMENTO
+# CRIACAO DO AMBIENTE DOCKER PARA DESENVOLVIMENTO
 
 > PS: Antes de iniciar os passos abaixo, verifique as configuracoes de DNS em /etc/docker/daemon.json, e caso necessario, inclua o IP "8.8.8.8" no mesmo.
 
