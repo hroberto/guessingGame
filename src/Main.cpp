@@ -19,9 +19,9 @@
 
 int main(int argc, char** argv)
 {
-    psafe::GameModel model;
-    psafe::GameView view(model);
-    psafe::GameController controller(model, view);
+    HMR::GameModel model;
+    HMR::GameView view(model);
+    HMR::GameController controller(model, view);
 
     try {
         controller.run();

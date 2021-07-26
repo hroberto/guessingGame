@@ -3,86 +3,81 @@
 #include "GameController.h"
 
 
-namespace psafe {
+namespace HMR {
 
 /**
- * Construtor da classe GameController
+ * \brief Construtor da classe GameController
  */
-GameController::GameController(GameModel & __model, GameView & __view)
-: _ptrModel(&__model), _ptrView(&__view)
+GameController::GameController(GameModel & model, GameView & view)
+: ptrModel_(&model), ptrView_(&view)
 {
 }
 
 /**
- * Destrutor da classe GameController
+ * \brief Destrutor da classe GameController
  */
 GameController::~GameController() {
 }
 
 
 /**
- * Executa o Jogo, com base  nos Modelo de dados( Utilizado ) e a View para apresentacao ao usuario.
+ * \brief Executa o Jogo, com base  nos Modelo de dados( Utilizado ) e a View para apresentacao ao usuario.
  */
 void GameController::run()
 {
     // Inicializa com a informacoes BASE conhecidas
-// #include <conio.h>
-    _ptrModel->initialize();
+    ptrModel_->initialize();
 
     bool isGameAgain = true;
 
     while ( isGameAgain ) {
-        _ptrView->sendWarningThinkAnimal();
+        ptrView_->sendWarningThinkAnimal();
 
-        psafe::stNode* ptrNoParent = NULL;
+        HMR::stNode* ptrNoParent = NULL;
         bool bLastTraitFoundCorrect = false;
 
         bool restart = false;
-        _ptrModel->moveFirst();
+        ptrModel_->moveFirst();
 
         while( ! restart )
         {
 
-            if ( _ptrModel->getCurrent()->value.isTypeTrait() ) {
-                bLastTraitFoundCorrect = _ptrView->askTraitFound( _ptrModel->getCurrent() );
+            if ( ptrModel_->getCurrent()->value.isTypeTrait() ) {
+                bLastTraitFoundCorrect = ptrView_->askTraitFound( ptrModel_->getCurrent() );
 
-                ptrNoParent = _ptrModel->getCurrent();
+                ptrNoParent = ptrModel_->getCurrent();
 
                 if ( bLastTraitFoundCorrect ) {
-                    _ptrModel->moveRight();
+                    ptrModel_->moveRight();
                 }
                 else {
-                    _ptrModel->moveLeft();
+                    ptrModel_->moveLeft();
                 }
             }
             else {
                 // FOUND animal
-                const bool bAnimalFoundCorrect = _ptrView->askAnimalFound( _ptrModel->getCurrent() );
+                const bool bAnimalFoundCorrect = ptrView_->askAnimalFound( ptrModel_->getCurrent() );
 
                 if ( ! bAnimalFoundCorrect ) {
                     // faz a leitura das informacoes com o usuario para
                     // realizar o aprendizado para alimentar o conhecimento do sistema
-                    std::string strAnimal = _ptrView->readAnimalThink();
-                    std::string strTrait = _ptrView->readTraitAnimalThink(strAnimal, _ptrModel->getCurrent()->value.getDescription());
+                    std::string strAnimal = ptrView_->readAnimalThink();
+                    std::string strTrait = ptrView_->readTraitAnimalThink(strAnimal, ptrModel_->getCurrent()->value.getDescription());
 
                     // envia a informacao coletada para registro pelo Modelo
                     if ( bLastTraitFoundCorrect ) {
-                        _ptrModel->addKnowledgeRight(strTrait , strAnimal, ptrNoParent );
+                        ptrModel_->addKnowledgeRight(strTrait , strAnimal, ptrNoParent );
                     }
                     else {
-                        _ptrModel->addKnowledgeLeft(strTrait , strAnimal, ptrNoParent );
+                        ptrModel_->addKnowledgeLeft(strTrait , strAnimal, ptrNoParent );
                     }
 
                 }
                 restart = true;
             }
         }
-        isGameAgain = _ptrView->askGameAgain();
+        isGameAgain = ptrView_->askGameAgain();
     }
 }
 
-
-    // GameModel * _ptrModel;
-    // GameView  * _ptrView;}
-
-} // psafe
+} // HMR

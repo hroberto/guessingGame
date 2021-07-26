@@ -9,13 +9,13 @@
  */
 
 
-#ifndef __PSAFE_KNOWLEDGE__
-#define __PSAFE_KNOWLEDGE__
+#ifndef __HMR_KNOWLEDGE__
+#define __HMR_KNOWLEDGE__
 
 #include <string>
 #include <memory>
 
-namespace psafe {
+namespace HMR {
 
 class Knowledge {
 public:
@@ -62,6 +62,6 @@ struct stNode {
 };
 
 
-} // psafe
+} // HMR
 
-#endif  // __PSAFE_KNOWLEDGE__
+#endif  // __HMR_KNOWLEDGE__

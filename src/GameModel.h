@@ -9,13 +9,13 @@
  */
 
 
-#ifndef __PSAFE_GAMEMODEL__
-#define __PSAFE_GAMEMODEL__
+#ifndef __HMR_GAMEMODEL__
+#define __HMR_GAMEMODEL__
 
 
 #include "Knowledge.h"
 
-namespace psafe {
+namespace HMR {
 
 /**
  * GameModel model
@@ -38,7 +38,7 @@ public:
     stNode* moveLeft();  // response NO
     stNode* moveRight(); // response YES
 
-    stNode* getCurrent() const { return ptrNodeCurrent; }
+    stNode* getCurrent() const { return ptrNodeCurrent_; }
 
     stNode* setKnowledge(const std::string __trait, const std::string __animalRight, const std::string __animalLeft );
     stNode* addKnowledgeLeft(const std::string& __trait, const std::string & __animalRight, stNode* _nodeParent );
@@ -46,10 +46,10 @@ public:
 
 protected:
 private:
-    std::unique_ptr< stNode > rootData;
-    stNode* ptrNodeCurrent;
+    std::unique_ptr< stNode > rootData_;
+    stNode* ptrNodeCurrent_;
 };
 
-} // psafe
+} // HMR
 
-#endif  // __PSAFE_GAMEMODEL__
+#endif  // __HMR_GAMEMODEL__

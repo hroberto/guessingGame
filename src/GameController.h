@@ -9,27 +9,27 @@
  */
 
 
-#ifndef __PSAFE_GAMECONTROLLER__
-#define __PSAFE_GAMECONTROLLER__
+#ifndef __HMR_GAMECONTROLLER__
+#define __HMR_GAMECONTROLLER__
 
 #include "GameModel.h"
 #include "GameView.h"
 
 
-namespace psafe {
+namespace HMR {
 
 class GameController {
 public:
-    GameController(GameModel & __model, GameView & __view);
+    GameController(GameModel & model, GameView & view);
     virtual ~GameController();
 
     void run();
 
 private:
-    GameModel * _ptrModel;
-    GameView  * _ptrView;
+    GameModel * ptrModel_;
+    GameView  * ptrView_;
 };
 
-} // psafe
+} // HMR
 
-#endif  // __PSAFE_GAMECONTROLLER__
+#endif  // __HMR_GAMECONTROLLER__

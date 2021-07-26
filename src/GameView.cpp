@@ -27,18 +27,18 @@ std::vector< std::string >  __MESSAGES = {
 
 
 
-namespace psafe {
+namespace HMR {
 
 /**
- * Construtor da classe GameView
+ * \brief Construtor da classe GameView
  */
-GameView::GameView(psafe::GameModel & __model)
-: _ptrModel( &__model )
+GameView::GameView(HMR::GameModel & model)
+: ptrModel_( &model )
 {
 }
 
 /**
- * Destrutor da classe GameView
+ * \brief Destrutor da classe GameView
  */
 GameView::~GameView() {
 }
@@ -51,7 +51,7 @@ void GameView::say_hello() {
 }
 
 /**
- *
+ * \brief Exibe a mensagem sobre o Animal elegivel
  */
 void GameView::sendWarningThinkAnimal()
 {
@@ -59,34 +59,42 @@ void GameView::sendWarningThinkAnimal()
     std::cin.get();
 }
 
+
 /**
- *
+ * \brief Exibe o questionamento se a caracteristica do animal está correta.
+ * \param  current Node que identifica a caracteristica atual do animal.
+ * \return Retorno booleano ( True/False ).
  */
-const bool GameView::askTraitFound(const stNode* __current )
+const bool GameView::askTraitFound(const stNode* current )
 {
     char option[30];
 
-    printf( __MESSAGES.at(_IDX_MESSAGE_ASK_TRAIT).c_str(), __current->value.getDescription().c_str() );
+    printf( __MESSAGES.at(_IDX_MESSAGE_ASK_TRAIT).c_str(), current->value.getDescription().c_str() );
     std::cin >> option;
 
     return ( IS_OPTION_YES(option[0]) );
 }
 
+
 /**
- *
+ * \brief Exibe o questionamento se o animal esta correto.
+ * \param current Node que identifica o animal atual.
+ * \return Retorno booleano ( true/false )
  */
-const bool GameView::askAnimalFound(const stNode* __current )
+const bool GameView::askAnimalFound(const stNode* current )
 {
     char option[30];
 
-    printf( __MESSAGES.at(_IDX_MESSAGE_ASK_ANIMAL).c_str(), __current->value.getDescription().c_str() );
+    printf( __MESSAGES.at(_IDX_MESSAGE_ASK_ANIMAL).c_str(), current->value.getDescription().c_str() );
     std::cin >> option;
 
     return ( IS_OPTION_YES(option[0]) );
 }
 
+
 /**
- *
+ * \brief  Exibe se o jogador quer continuar o jogo.
+ * \return Retorno booleano ( true/false )
  */
 const bool GameView::askGameAgain()
 {
@@ -101,8 +109,10 @@ const bool GameView::askGameAgain()
     return ( IS_OPTION_YES(option) );
 }
 
+
 /**
- *
+ * \brief Solicita a entrada do animal que o jogador pensou
+ * \return  Retorna um texto indicando o animal
  */
 const std::string GameView::readAnimalThink()
 {
@@ -115,17 +125,21 @@ const std::string GameView::readAnimalThink()
     return ( value );
 }
 
+
 /**
- *
+ * \brief Solicita a entrada da caracteristica do animal que o jogador pensou, que diferencia do ultimo animal
+ * \param animalNovo Nome do novo animal
+ * \param animalAntigo  Nome do antigo animal
+ * \return Descricao da caracteristica do novo animal.
  */
-const std::string GameView::readTraitAnimalThink(const std::string& __animalNovo, const std::string& __animalAntigo)
+const std::string GameView::readTraitAnimalThink(const std::string& animalNovo, const std::string& animalAntigo)
 {
     std::string value;
 
-    printf( __MESSAGES.at(_IDX_MESSAGE_READ_TRAIT).c_str(), __animalNovo.c_str() , __animalAntigo.c_str() );
+    printf( __MESSAGES.at(_IDX_MESSAGE_READ_TRAIT).c_str(), animalNovo.c_str() , animalAntigo.c_str() );
     getline( std::cin, value);
 
     return ( value );
 }
 
-} // psafe
+} // HMR
