@@ -1,7 +1,7 @@
 
-# AVALIA��O PARA ENTREVISTA NA PSAFE
+# TESTE DE AVALIACAO - JOGO DE ADIVINHACAO
 
-Este documento visa descrever os passos para a montagem de ambiente, da aplica��o para teste de conhecimento t�cnico, sugerido pela [PSAFE](https://www.psafe.com/pt-br/).
+Este documento visa descrever os passos para a montagem de ambiente, da aplicacao para teste de conhecimento tecnico.
 
 
 #INFORMA��ES DO CANDIDATO
