@@ -4,7 +4,7 @@
 Este documento visa descrever os passos para a montagem de ambiente, da aplicacao para teste de conhecimento tecnico.
 
 
-#INFORMA��ES DO CANDIDATO
+#INFORMACOES DO CANDIDATO
 
 > **Data Criacao:** 27/06/2021
 > **Autor:** HENRIQUE MARTINS ROBERTO
@@ -18,7 +18,7 @@ O desenvolvimento foi realizado na plataforma LINUX, com o compilador GNU. Porta
 
 #CRIACAO DO AMBIENTE DOCKER PARA DESENVOLVIMENTO
 
-> PS: Antes de iniciar os passos abaixo, verifique as configuracoes de DNS em /etc/docker/daemon.json, e caso necess�rio, inclua o IP "8.8.8.8" no mesmo.
+> PS: Antes de iniciar os passos abaixo, verifique as configuracoes de DNS em /etc/docker/daemon.json, e caso necessario, inclua o IP "8.8.8.8" no mesmo.
 
 
 ```sh
